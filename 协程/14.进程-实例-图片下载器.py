@@ -2,6 +2,7 @@
 import multiprocessing
 import urllib.request
 
+
 def download(img_name, img_url):
    req = urllib.request.urlopen(img_url)
    data = req.read()
@@ -16,6 +17,7 @@ def main():
 
     p1.start()
     p2.start()
+
 
 if __name__ == "__main__":
     main()
