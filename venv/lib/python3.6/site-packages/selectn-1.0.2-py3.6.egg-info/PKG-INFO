@@ -1,0 +1,12 @@
+Metadata-Version: 1.1
+Name: selectn
+Version: 1.0.2
+Summary: Resolves deeply-nested dictionary properties via dot-notation
+Home-page: https://github.com/srn/selectn-py
+Author: Søren Brokær
+Author-email: root@srn.io
+License: UNKNOWN
+Download-URL: https://github.com/srn/selectn-py/tarball/1.0.2
+Description: UNKNOWN
+Keywords: selectn,dictionary,dot,notation
+Platform: UNKNOWN
