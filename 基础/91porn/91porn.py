@@ -1,5 +1,4 @@
-#
-#
+
 from sys import argv
 import requests, re, time, random
 

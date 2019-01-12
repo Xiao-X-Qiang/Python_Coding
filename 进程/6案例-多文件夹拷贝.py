@@ -43,6 +43,7 @@ def main():
     new_file_num = 0
     while True:
         q.get()  # 消息队列为空时，阻塞
+
         new_file_num += 1
         print("\r完成复件的百分比为：%.2f%%" % (new_file_num * 100 / old_file_num), end=' ')
         if new_file_num == old_file_num:
