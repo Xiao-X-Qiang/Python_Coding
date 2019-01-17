@@ -1,21 +1,27 @@
+#
 import re
 
-temp = "主题作者：路45341"
+temp =""""bp":'1.99'"""
 
-if __name__ == "__main__":
-    ret = re.search(r"主1题作者：(.*?)53(.*?)", temp)
-    print(ret.group())  # 匹配的完整结果
-    print(ret.group()[0])  # 匹配的完整结果，同上
-    print(ret.group()[1])  # 分组匹配的第一个结果
-    print(ret)  # 匹配结果对象，无匹配时为None
-    print(type(ret.groups()))  # 分组匹配结果的元组，eg:第一个分组结果：ret.groups[0]
 
-    print("*" * 15)
+ret = re.findall(r"\"bp\":'(.*?)'",temp)
 
-    ret1 = re.match(r"主题(.*?)41", temp)
-    print(ret1.group())
-    print(ret1.group()[0])
-    print(ret1.group(1)[1])
-    print(ret1)
+print(ret[0])
 
-    print(ret1.groups()[0])
+
+# import re,json
+#
+# import requests
+#
+# ret  = requests.get("https://csearch.suning.com/emall/cshop/queryByGroup.do?vendor_Id=0070079390&groupId=244011&start=0&cityId=010&rows=48")
+#
+# ret  = ret.content.decode()
+#
+# ret1 = re.search(r"jsonpQueryByGroup\((.*)\)",ret).groups()[0]
+#
+# ret2 = json.loads(ret1)
+#
+# print(ret2["totalSize"])
+#
+#
+# # print(ret1)

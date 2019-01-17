@@ -1,7 +1,6 @@
-
 # -*- coding: utf-8 -*-
 
-# Scrapy settings for yangguang project
+# Scrapy settings for suning project
 #
 # For simplicity, this file contains only settings considered important or
 # commonly used. You can find more settings consulting the documentation:
@@ -10,17 +9,15 @@
 #     https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #     https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
-BOT_NAME = 'yangguang'
+BOT_NAME = 'suning'
 
-SPIDER_MODULES = ['yangguang.spiders']
-NEWSPIDER_MODULE = 'yangguang.spiders'
+SPIDER_MODULES = ['suning.spiders']
+NEWSPIDER_MODULE = 'suning.spiders'
 
-LOG_LEVEL = "DEBUG"
-MONGO_HOST = "127.0.0.1"
-
+LOG_LEVEL = "WARNING"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_13_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36'
+#USER_AGENT = 'suning (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = True
@@ -51,13 +48,13 @@ ROBOTSTXT_OBEY = True
 # Enable or disable spider middlewares
 # See https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 #SPIDER_MIDDLEWARES = {
-#    'yangguang.middlewares.YangguangSpiderMiddleware': 543,
+#    'suning.middlewares.SuningSpiderMiddleware': 543,
 #}
 
 # Enable or disable downloader middlewares
 # See https://doc.scrapy.org/en/latest/topics/downloader-middleware.html
 #DOWNLOADER_MIDDLEWARES = {
-#    'yangguang.middlewares.YangguangDownloaderMiddleware': 543,
+#    'suning.middlewares.SuningDownloaderMiddleware': 543,
 #}
 
 # Enable or disable extensions
@@ -68,9 +65,9 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'yangguang.pipelines.YangguangPipeline': 300,
-}
+#ITEM_PIPELINES = {
+#    'suning.pipelines.SuningPipeline': 300,
+#}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
