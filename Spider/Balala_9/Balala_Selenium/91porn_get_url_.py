@@ -6,6 +6,8 @@ from queue import Queue
 
 import json
 
+# t2 = Thread(target=self.get_content,args=(1,8,))  # 起始页，页码数，可设置
+# 输出视频列表 video_list.txt
 
 class Music_163(object):
     def __init__(self):
@@ -38,7 +40,7 @@ class Music_163(object):
 
     def save_list(self):
         while True:
-            with open("./porn_url.txt", "a", encoding="utf8") as f:
+            with open("./video_list.txt", "a", encoding="utf8") as f:
                 print("*" * 20)
 
                 item = self.url_queue.get()
@@ -52,7 +54,7 @@ class Music_163(object):
         try:
             t_list = []
 
-            t2 = Thread(target=self.get_content,args=(1,1,))  # 起始页，页码数，从第2页开始，下载2页
+            t2 = Thread(target=self.get_content,args=(1,8,))  # 起始页，页码数
             t_list.append(t2)
 
             t3 = Thread(target=self.save_list)

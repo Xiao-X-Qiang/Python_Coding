@@ -118,6 +118,10 @@ class Porn91_IP_RequestMiddle(object):
         request.headers["X-Forwarded-For"] = ip  # 在请求的headers中添加该字段信息，防止被反爬
         request.headers["referer"] = "http://91porn.com"
 
+        # 添加该字段，以获得中文响应
+        request.headers["Accept"] = 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+        request.headers["Accept-Language"] = 'zh-CN,zh;q=0.9,en;q=0.8'
+
     def process_response(self, request, response, spider):
         print("*" * 15 + "i'm in middleware")
         print(request.headers["X-Forwarded-For"])  # 打印请求时的X-Forwarded-For字段信息

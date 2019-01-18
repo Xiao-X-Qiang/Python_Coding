@@ -6,6 +6,8 @@ import threading
 import random
 import re
 
+# 由视频所在的网页url解析视频url
+# 此py文件供参考
 
 class JieXi_91(object):  # 有bug,有些链接不能解析，待修改
 
