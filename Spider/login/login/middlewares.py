@@ -6,10 +6,9 @@
 # https://doc.scrapy.org/en/latest/topics/spider-middleware.html
 
 from scrapy import signals
-import random
 
 
-class CqutSpiderMiddleware(object):
+class LoginSpiderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the spider middleware does not modify the
     # passed objects.
@@ -57,7 +56,7 @@ class CqutSpiderMiddleware(object):
         spider.logger.info('Spider opened: %s' % spider.name)
 
 
-class CqutDownloaderMiddleware(object):
+class LoginDownloaderMiddleware(object):
     # Not all methods need to be defined. If a method is not defined,
     # scrapy acts as if the downloader middleware does not modify the
     # passed objects.
@@ -102,23 +101,3 @@ class CqutDownloaderMiddleware(object):
 
     def spider_opened(self, spider):
         spider.logger.info('Spider opened: %s' % spider.name)
-
-
-class RandomUserAgentMiddle(object):
-    def process_request(self, request, spider):
-        user_agent = random.choice(spider.settings.get("USER_AGENTS_LIST"))
-        request.headers["User-Agent"] = user_agent
-
-class ProxyMiddleware(object):
-    def process_request(self,request,spider):
-        request.meta["proxy"] = "http://124.115.126.76:808"
-        # 添加代理，需要在request的meta信息中添加proxy字段
-        # 代理的形式：协议(http/https)+IP+端口
-
-
-class CheckUserAgent(object):
-    def process_response(self, request, response, spider):
-        # print(response.body.decode())
-        print("*" * 15)
-        print(request.headers["User-Agent"])
-        return response
