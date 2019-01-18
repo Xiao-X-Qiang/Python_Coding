@@ -118,7 +118,7 @@ class Porn91_IP_RequestMiddle(object):
         request.headers["X-Forwarded-For"] = ip  # 在请求的headers中添加该字段信息，防止被反爬
         request.headers["referer"] = "http://91porn.com"
 
-    def process_response(self,request,response,spider):
-         print("*"*15 + "i'm in middleware")
-         print(request.headers["X-Forwarded-For"])  # 打印请求时的X-Forwarded-For字段信息
-         return response
+    def process_response(self, request, response, spider):
+        print("*" * 15 + "i'm in middleware")
+        print(request.headers["X-Forwarded-For"])  # 打印请求时的X-Forwarded-For字段信息
+        return response
