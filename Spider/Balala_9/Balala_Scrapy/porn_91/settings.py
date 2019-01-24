@@ -14,6 +14,24 @@ BOT_NAME = 'porn_91'
 SPIDER_MODULES = ['porn_91.spiders']
 NEWSPIDER_MODULE = 'porn_91.spiders'
 
+
+
+# scrapy_redis
+# 打开以下设置，将进行爬虫的去重
+
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# SCHEDULER_PERSIST = True
+# #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
+# #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
+# #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderStack"
+#
+# REDIS_URL = "redis://127.0.0.1:6379"
+
+# scrapy_redis
+
+
+
 LOG_LEVEL = "WARNING"
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent

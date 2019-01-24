@@ -1,27 +1,22 @@
-#
-import re
-
-temp =""""bp":'1.99'"""
 
 
-ret = re.findall(r"\"bp\":'(.*?)'",temp)
+a = ['李洁', '，', '许文妍', ' 著']
 
-print(ret[0])
+b = "奇葩"
+# print(len(b))
+
+b = [ i.strip() for i in a ]
+
+c = [i for i in b if len(i)>1]
+
+# print(b)
+# # print(c)
+#
+# a = ["hello"]
+#
+# print(str(a))
 
 
-# import re,json
-#
-# import requests
-#
-# ret  = requests.get("https://csearch.suning.com/emall/cshop/queryByGroup.do?vendor_Id=0070079390&groupId=244011&start=0&cityId=010&rows=48")
-#
-# ret  = ret.content.decode()
-#
-# ret1 = re.search(r"jsonpQueryByGroup\((.*)\)",ret).groups()[0]
-#
-# ret2 = json.loads(ret1)
-#
-# print(ret2["totalSize"])
-#
-#
-# # print(ret1)
+
+
+

@@ -33,7 +33,7 @@ class HanghaiwangSpider(scrapy.Spider):
         print(next_url)
         yield scrapy.Request(next_url, callback=self.parse)
 
-    def content_detail(self, response):
+    def content_detail(self, response):  # 贴吧详情页
         item = response.meta["item"]  # 携带而来的数据
 
         # 当前页的图片列表追回至item["content_img"]列表中
