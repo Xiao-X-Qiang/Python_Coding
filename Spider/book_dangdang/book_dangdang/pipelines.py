@@ -8,4 +8,5 @@
 
 class BookDangdangPipeline(object):
     def process_item(self, item, spider):
+        print("*"*20)
         return item

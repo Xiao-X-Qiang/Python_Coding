@@ -10,6 +10,8 @@ NEWSPIDER_MODULE = 'example.spiders'
 
 USER_AGENT = 'scrapy-redis (+https://github.com/rolando/scrapy-redis)'
 
+# 打开redis的相关设置
+
 DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
 SCHEDULER = "scrapy_redis.scheduler.Scheduler"
 SCHEDULER_PERSIST = True
@@ -17,7 +19,10 @@ SCHEDULER_PERSIST = True
 #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
 #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderStack"
 
-REDIS_URL = "redis://127.0.0.1:6379"
+REDIS_URL = "redis://192.168.31.219:6379"
+
+# 打开redis的相关设置
+
 
 ITEM_PIPELINES = {
     'example.pipelines.ExamplePipeline': 300,

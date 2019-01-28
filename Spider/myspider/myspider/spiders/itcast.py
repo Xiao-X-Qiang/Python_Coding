@@ -10,17 +10,28 @@ class ItcastSpider(scrapy.Spider):
     start_urls = ['http://www.itcast.cn/channel/teacher.shtml']  # 最开始的start_url
 
     def parse(self, response):
-        for i in range(10):
-            item = {}
-            item["come from "] = "itcast"
-            # logging.warning(item)
-            logger.warning(item)
-            # yield item
 
         # 处理start_url 对应的响应
-        # ret1 = response.xpath("//div[@class='tea_con']//h3/text()").extract()
-        # print(ret1)
+        ret1 = response.xpath("//div[@class='tea_con']//h3")  # 获得标签，返回的是Selector对象列表
+        ret2 = response.xpath("//div[@class='tea_con']//h3//text()")  # 获得文本，返回的也是Selector对象列表，只是对象的属性与上式有区别
+        ret3 = response.xpath("//div[@class='tea_con']/div/@class")  # 获得属性，回的也是Selector对象列表，只是对象的属性与上式有区别
+
+        print(ret1[:2])
+        print(type(ret1))
+        print("*"*15)
+        print(ret2[:2])
+        print(type(ret2))
+        print("*" * 15)
+        print(ret3[:2])
+        print(type(ret3))
         # pass
+
+        # for i in range(10):
+        #     item = {}
+        #     item["come from "] = "itcast"
+        #     # logging.warning(item)
+        #     logger.warning(item)
+        #     # yield item
 
         # # 分组
         # li_list = response.xpath("//div[@class='tea_con']//li")

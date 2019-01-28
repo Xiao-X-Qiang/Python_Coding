@@ -80,9 +80,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'book_dangdang.pipelines.BookDangdangPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   'book_dangdang.pipelines.BookDangdangPipeline': 300,  # 由pipelines中的BookDangdangPipeline进行数据处理
+   'scrapy_redis.pipelines.RedisPipeline': 400,   # 由scrapy_redis实现，打开该设置后，会默认将item写入redis数据库中
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html

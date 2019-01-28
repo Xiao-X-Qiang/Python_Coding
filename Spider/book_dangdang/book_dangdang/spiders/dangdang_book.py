@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy_redis.spiders import RedisSpider
@@ -16,15 +17,15 @@ class DangdangBookSpider(RedisSpider):
     redis_key = 'dangdang'
 
     def parse(self, response):
-        div = response.xpath("//div[@class='con flq_body']/div[3]")  # 大分类
+        div = response.xpath("//div[@class='con flq_body']/div[3]")  # 1.大分类
         item = {}
         item["b_cate"] = div.xpath("./dl[@class='primary_dl']/dt//text()").extract_first().strip()
 
-        dl_list = div.xpath("./div//dl[@dd_name]")  # 中分类
+        dl_list = div.xpath("./div//dl[@dd_name]")  # 2.中分类
         for dl in dl_list:
             item["m_cate"] = dl.xpath("./dt/a/text()").extract_first().strip()
 
-            a_list = dl.xpath("./dd/a")  # 小分类
+            a_list = dl.xpath("./dd/a")  # 3.小分类
             for a in a_list:
                 item["s_cate"] = a.xpath("./@title").extract_first()
                 item["href"] = a.xpath("./@href").extract_first()
@@ -35,7 +36,7 @@ class DangdangBookSpider(RedisSpider):
                     meta={"item": deepcopy(item)}
                 )
 
-    def parse_book_list(self, response):  # 图书列表页
+    def parse_book_list(self, response):  # 4.图书列表页
         item = response.meta["item"]
         li_list = response.xpath("//div[@id='search_nature_rg']//li[@ddt-pit]")  # 图书列表
         for li in li_list:
@@ -50,7 +51,7 @@ class DangdangBookSpider(RedisSpider):
                 item["book_author"] = [i.strip() for i in
                                        li.xpath(
                                            "./p[@class='search_book_author']/span[1]/a/text()").extract()]  # 剔除空白字符
-                item["book_author"] = [i for i in item["book_author"] if len(i) > 1]  # 剔除单个字符，比如：空字符、译，著等字眼
+                item["book_author"] = [i for i in item["book_author"] if len(i) > 1]  # 剔除单个字符，比如：译，著等字眼
 
             item["book_publish_date"] = li.xpath("./p[@class='search_book_author']/span[2]/text()").extract_first()
             # print(item["book_name"])
@@ -63,10 +64,10 @@ class DangdangBookSpider(RedisSpider):
                 "./p[@class='search_book_author']/span[3]/a/text()").extract_first()
             if item["book_publish_store"] is not None:
                 item["book_publish_store"].strip()
-            yield item
+            yield item  # 提交item
             print(item)
 
-        # 图书列表页翻页
+        # 5.图书列表页翻页
         next_url = response.xpath("//a[@title='下一页']/@href").extract_first()
         next_url = urllib.parse.urljoin(response.url, next_url)
         yield scrapy.Request(

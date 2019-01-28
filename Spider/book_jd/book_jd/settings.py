@@ -16,14 +16,14 @@ NEWSPIDER_MODULE = 'book_jd.spiders'
 
 # 打开scrapy_redis ，并使用数据库redis
 #
-DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
-SCHEDULER = "scrapy_redis.scheduler.Scheduler"
-SCHEDULER_PERSIST = True
-#SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
-#SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
-#SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderStack"
-
-REDIS_URL = "redis://192.168.31.219:6379"
+# DUPEFILTER_CLASS = "scrapy_redis.dupefilter.RFPDupeFilter"
+# SCHEDULER = "scrapy_redis.scheduler.Scheduler"
+# SCHEDULER_PERSIST = True
+# #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderPriorityQueue"
+# #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderQueue"
+# #SCHEDULER_QUEUE_CLASS = "scrapy_redis.queue.SpiderStack"
+#
+# REDIS_URL = "redis://192.168.31.219:6379"
 
 LOG_LEVEL = "WARNING"
 
@@ -78,10 +78,10 @@ ROBOTSTXT_OBEY = True
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-ITEM_PIPELINES = {
-   'book_jd.pipelines.BookJdPipeline': 300,
-   'scrapy_redis.pipelines.RedisPipeline': 400,
-}
+# ITEM_PIPELINES = {
+#    'book_jd.pipelines.BookJdPipeline': 300,
+#    'scrapy_redis.pipelines.RedisPipeline': 400,
+# }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
