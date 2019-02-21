@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style type="text/css">
+		.con{
+			width:500px;
+			height: 300px;
+			background-color: #fff;
+			border:1px red solid;
+			margin: 50px auto;
+			position: relative;
+		}
+		
+		.con div{
+			width:200px;
+			height:200px;
+			position: absolute;
+		}
+
+		.box1{
+			background-color: green;
+			top:20px;
+			left:20px;
+		}
+		.box2{
+			background-color: red;
+			top:40px;
+			left:40px;
+			z-index: 10;
+		}
+
+		.box3{
+			background-color: yellow;
+			top:60px;
+			left:60px;
+		}
+
+		.box4{
+			background-color: pink;
+			top:80px;
+			left:80px;
+		}
+
+	</style>
+</head>
+<body>
+
+	<div class="con">
+		<div class="box1">1</div>
+		<div class="box2">2</div>
+		<div class="box3">3</div>
+		<div class="box4">4</div>
+	</div>
+	
+</body>
+</html>

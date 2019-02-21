@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		.box{
+			width: 700px;
+			height: 600px;
+			border:1px solid #000;
+			margin:50px auto;
+			background-image: url(images/u=2310514390,3580363630&fm=26&gp=0.jpg);
+
+			/*
+			repeat-x:只平铺x方向;
+			repeat-y:只平铺y方向；
+			repeat:缺省值，平铺x、y方向;
+			no-repeat：只平铺一次；
+			*/
+			background-repeat: repeat-x;
+			
+			/*
+			3*3种选择
+			[left|center|right] [top|center|bottom]
+
+			也可用数字表示
+			background-position:20px 30px;
+			*/
+			
+			background-position: left top;
+
+			background-color: gold;
+
+			/*
+			可将上述关于background的相关属性简写成一条语句
+			background:url(...) repeat-x left top gold;
+			*/
+
+		}
+	</style>
+</head>
+<body>
+	<div class="box">
+		
+	</div>
+		
+</body>
+</html>

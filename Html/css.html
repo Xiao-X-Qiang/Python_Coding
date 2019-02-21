@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>盒子模型</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<style type="text/css">
+
+
+		.clearfix:before{
+			content: "";
+			display: table;
+
+		}
+		.box{
+			width:500px;
+			height:300px;
+			background-color: gold;
+			/*border: 1px red solid；  第一种方法*/
+			/*overflow: hidden;	第二种方法*/
+			margin: 50px auto;
+			font-size:0px;
+
+		}
+
+		.box div{
+			width:150px;
+			height:100px;
+			background-color: green;
+			display: inline-block;
+			font-size:16px;
+			margin: 10px		
+			
+		}
+
+		
+	</style>
+</head>
+<body>
+	<div class="box">
+		<div>第一个div元素</div>
+		<div>第二个div元素</div>
+	</div>
+
+</body>
+</html>
