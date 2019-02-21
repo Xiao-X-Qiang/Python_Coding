@@ -46,7 +46,7 @@ def service_client(client_socket, request):
 def main():
     client_list = list()  # 用于保存与客户端相连的套接字
     tcp_server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    tcp_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    tcp_server.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # 复用端口，强制忽略time_wait
     tcp_server.bind(("", 8080))
     tcp_server.listen()
     # tcp_server.setblocking(False)  # 设置套接字为非阻塞的方式

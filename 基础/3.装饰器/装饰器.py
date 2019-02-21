@@ -1,54 +1,66 @@
-
-
-_usrname='alex'
-_password='abc123'
-
-user_status=False
-
-
+# 1.单纯装饰器，装饰函数baidu()
 def login(func):
-    def inner(*arg):
-        global user_status
-        if user_status == False:
+    def inner():
+        print("this is inner")
+        func()
 
-            while True:
-                username = input('user:')
-                password = input('password:')
-                if username == _usrname and password == _password:
-                    print('welcome login')
-                    user_status = True
-                    break
-                else:
-                    print('wrong username or password,please try again')
-
-        else:
-            print('已验证，允许登陆')
-
-        func(*arg)
     return inner
 
-def home():
-    print('---首页---')
 
-def america():
-
-    print('---america---')
-
-@login
-def japan():
-    print('---japan---')
-
-@login
-def china(style):
-
-    print('---china---',style)
+@login  # inner = baidu = login(baidu)  默认已经执行到此
+def baidu():
+    print("baidu welcome")
 
 
+# ****************************
 
-# japan=login(japan)
+
+# 2.进阶装饰器，装饰函数tencent(x,y)，与上述不同之处在于inner()的形参 -- 因为tencent()带有形参
+
+def login1(func):
+    def inner(*args):
+        print("this is inner")
+        func(args[0], args[1])
+
+    return inner
 
 
-china('tok')
+@login1  # 相当于 inner = tencent = login1(tencent)  默认已经执行到此
+def tencent(x, y):
+    print("tencent welcome:", x, y)
 
-japan()
 
+# ****************************
+
+# 3.装饰器，装饰函数alibaba(x),且login2(auto_type)自带参数
+
+def login2(auto_type):
+    if auto_type == "QQ":
+        def outer(func):
+            print("this is outer")
+
+            def inner(*args):
+                print("this is inner")
+                func(args[0])
+
+            return inner
+
+        return outer
+
+
+@login2("QQ")  # 相当于 outer = login2 = login2(QQ), inner = alibaba = login2(alibaba)  默认已经执行到此,故而控制台才会输出 this is outer
+def alibaba(x):
+    print("alibaba welcome ", x)
+
+
+# 情形1
+print("*" * 10)
+baidu()
+print("*" * 10)
+# 情形2
+
+tencent(11, 22)
+print("*" * 10)
+# 情形3
+alibaba("qiang")
+print("*" * 10)

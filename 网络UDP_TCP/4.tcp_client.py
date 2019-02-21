@@ -6,7 +6,7 @@ def main():
     # 1.创建一个套接字socket对象，用于进行通讯
     # socket.AF_INET 指明使用INET地址集，进行网间通讯
     # socket.SOCK_STREAM 指明使用数据协议，即使用传输层的tcp协议
-    tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    tcp_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)  # STREAM 字节流
 
     # 2.链接服务器
     server_address = ("192.168.123.64", 8080)
