@@ -18,6 +18,8 @@ cusor = conn.cursor()
 
 
 # SQL反注入，将输入的数据放入列表，使sql语句参数化，conn.cursor.execute()进行sql语句的拼接
+# 放入列表的数据，只能用于插入字符串类型的数据，对于数值型数据无能为力
+
 item = []
 item.append(input("输入商品的名称："))
 cusor.execute("select * from goods where name = %s", item)

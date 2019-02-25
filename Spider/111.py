@@ -1,18 +1,27 @@
-# import random
-#
-# IP_list = []
-# with open("./proxies.txt" ,'r' ,encoding="utf8") as f1:
-#     data = f1.readline()
-#     while data:
-#         IP_list.append(data)
-#         data = f1.readline()
-#
-# print(random.choice(IP_list))
 
-# proxies = {
-#     'HTTP': 'HTTP://113.128.9.175:9999'
-# }
+import time
 
-n = 3
+from selenium import webdriver
 
-assert n > 3, "n is not larger than 3"
+driver = webdriver.Chrome()
+
+driver.get("https://www.qiushibaike.com/text/")
+
+while True:
+
+    div_list = driver.find_elements_by_xpath("//div[@id='content-left']/div")
+
+    for div in div_list:
+        item = {}
+        item["text"] = div.find_element_by_xpath("./a[1]//div[@class='content'][1]").text
+        print(item["text"])
+        print("*"*15)
+    if len(driver.find_elements_by_class_name("next")) == 0:
+        break
+    driver.find_elements_by_class_name("next")[0].click()
+
+    time.sleep(2)
+
+time.sleep(5)
+
+driver.quit()
