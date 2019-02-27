@@ -1,5 +1,12 @@
 
 import numpy as np
 
-a = np.array([[1,2,3],[2,3,4],[3,4,9]])
+x_c = np.eye(3)  # 创建对角线全1的方阵
+print(x_c)
+
+a = x_c[:,2]
+
+
+print(x_c)
+
 

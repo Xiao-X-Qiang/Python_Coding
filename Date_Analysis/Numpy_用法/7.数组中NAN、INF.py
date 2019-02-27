@@ -33,8 +33,8 @@ nan_num = np.count_nonzero(x_3 != x_3)
 print(nan_num)
 
 # 或 np.isnan(x_3)判断返回 bool类型
-nan_num = np.isnan(x_3)
-print(np.count_nonzero(nan_num))
+nan_bool = np.isnan(x_3)  # 效果等同于 x_3 != x_3
+print(np.count_nonzero(nan_bool))
 
 # 2.nan和任何值计算都为nan
 print(np.sum(x_3,0))
@@ -74,3 +74,27 @@ print(x_4_1,x_4_2)
 # 在一组数据中是否可简单地把nan替换为0？
 # 一般不可以：替换为0后，替换后的数据的平均值将会变小，一般将其替换为均值(或中值)，或者删除有缺失值的一行记录
 
+# 1.将每一列中的nan替换为该列的均值或中值
+x_5 = np.arange(15).reshape((3,5)).astype(np.float)
+x_5[2,3:] = np.nan
+print(x_5)
+
+
+def fill_mean_nan(x):
+    """
+    判断数组中是否有nan,如有，则将当前列中的nan替换为当前列的均值
+    :param x: 数组
+    :return: 替换nan后的数组
+    注意：通过bool索引修改数组中的数据后得到的数组，与原始数组引用的是同一地址，即是同一个对象
+    """
+    num_col = x.shape[1]
+    for i in range(num_col):
+        temp = x[:,i]  # 当前的某列
+        num_nan = np.count_nonzero(temp != temp)  # 当前列中nan的个数
+        if num_nan != 0:  # 当前列中有nan
+            temp_no_nan_mean = temp[temp == temp].mean()  # 当前列中非nan的均值
+            temp[temp != temp] = temp_no_nan_mean
+    return x
+
+
+print(fill_mean_nan(x_5))
