@@ -12,7 +12,6 @@ print(x_7.shape)
 print(x_7[0][2])
 
 
-
 # 轴 = 维度
 # 维度：len(obj.shape)表数据的维度，obj.ndim表数据的维度，numpy.ndim(obj)表数据的维度
 # 维度的长度：obj.shape指的数据在相应维度上的长度
