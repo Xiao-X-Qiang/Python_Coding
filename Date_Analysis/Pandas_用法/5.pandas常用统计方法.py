@@ -4,7 +4,8 @@ import string
 from matplotlib import pyplot as plt
 
 # 对DataFrame进行切片后的数据(数据类型是DataFrame或Series).values后(数据类型numpy.ndarray)可以直接使用numpy中的方法进行有关统计
-# DataFrame --> Series后也可以使用numpy中的部分统计方法,但推荐 Series-->numpy.ndarry后再使用统计方法
+# DataFrame、Series也可以使用numpy中的部分统计方法,但推荐 Series-->numpy.ndarry后再使用统计方法
+
 
 
 # print(type(data)) DataFrame数据类型
@@ -50,3 +51,5 @@ plt.show()
 # 对于这一组电影数据，如果我们希望统计电影分类(genre)的情况，应该如何处理数据？
 # 思路：重新构造一个全为0的数组，列名为分类，如果某一条数据中分类出现过，就让0变为1
 gen_list = data_x["Genre"].str.split(",").tolist()
+
+# 如何进行DataFrame数据的字符串的离散化呢？

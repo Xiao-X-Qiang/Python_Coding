@@ -7,7 +7,7 @@ import string
 x_1 = pd.Series(range(20))
 
 # 方式二：
-x_2 = pd.Series([1,2,3,4],index=(30,34))   # 或 x_2 = pd.Series([1,2,3,4],list(range(30,34)))
+x_2 = pd.Series([1,2,3,4],index=list("abcd"))   # 或 x_2 = pd.Series([1,2,3,4],list(range(30,34)))
 
 # 方式三
 # pd.Series(dict_data[)
@@ -26,7 +26,7 @@ x_4 = pd.Series(x_3,index=["name",1,2,3])
 print(x_4)
 
 # Series的索引和切片
-# 可视其为字典，有两个索引：显示的索引值index,以及默认的索引下标，0，1，2...
+# 可视其为字典，有两个索引：标签索引index,以及下标索引，0，1，2...
 x_5 = pd.Series({string.ascii_uppercase[i]:i for i in range(10)})
 print(x_5)
 
@@ -50,5 +50,5 @@ print(x_5[0:8:2])  # 选取连续的记录，类比于numpy中的切片
 print(x_5.index,x_5.values)
 
 # Series对象本质上由两个数组组成：
-# 一个数组构成对象的键(index,下标索引)，一个数组构成对象的值(values),对应于 键--->值
+# 一个数组构成对象的键(标签索引,下标索引)，一个数组构成对象的值(values),对应于键--->值
 
