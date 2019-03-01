@@ -13,7 +13,8 @@ file_path = "./IMDB-Movie-Data.csv"
 data_x = pd.read_csv(file_path)
 
 # 统计分类的列表
-list_genre_temp = data_x["Genre"].str.split(",").tolist()  # [[],[],[]]
+list_genre_temp = data_x["Genre"].str.split(",").tolist()  # [[],[],[]]  先分割再列表
+# 或者 list_genre_temp = [ i.split(",") for i in data_x["Genre"].tolist() ]  # 先列表再分割
 list_genre = set([i for j in list_genre_temp for i in j])  # genre列表，[a,b,...]  不重复的类别
 list_genre_x = pd.DataFrame(np.zeros((data_x.shape[0],len(list_genre))),columns=list_genre)  # 类别列表，DataFrame全为0
 

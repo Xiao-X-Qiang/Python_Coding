@@ -5,10 +5,10 @@ import string
 # pandas索引和切片
 # pandas的有两种索引，行索引和列索引(其中，行索引也分为标签索引和下标索引)
 # 索引大致总共有以下几种：
-# 1.obj.loc[] 标签索引,取行列(行标签不存在时方可使用下标索引)
+# 1.obj.loc[] 标签索引,取行列(行标签索引不存在时方可使用下标索引)
 # 2.obj.iloc[] 下标索引，取行列
 # 3.obj[:]取行或obj[""]/obj[["",""]]取列
-# 4.obj[bool] 布尔索引取行
+# 4.obj[bool] 布尔索引取行或列或特定的行列
 # 注意：定位数据时，可以以上方式直接获得，也可分步获得，即obj[xx][yy] 由obj[xx]获得行或列，再[yy]进一步获得列或行
 
 
@@ -82,6 +82,6 @@ print(data[index_1])
 
 # 数据的另类定位
 data_2 = pd.DataFrame(np.arange(24).reshape((4,6)),index=list("abcd"),columns=list("ABCDEF"))
-print(data_2["B"][2])  # 可表示为：DataFrame --> ndarray --> 索引
+print(data_2["B"][2])  # 可表示为：DateFrame:data_2-->Series：data_2["B"]--> 再索引:data_2["B"].[2]
 
 
