@@ -43,8 +43,11 @@ data_sbuck = pd.read_csv("./starbucks_store_worldwide.csv")
 print(data_sbuck.info())
 print(data_sbuck.head(1))
 
-# 分组，pandas中数据(DataFrame)根据列名(str)直接分组返回可迭代对象DataFrameGroupBy：每一个元素是一个元组(索引(分组的值),分组后的DataFrame)
+# 分组：可视结果为单个标签索引，有别于复合索引
+# 对于分组后的结果，可视其为将by=xx字段设置为标签索引(单个索引，有别于复合索引)，即 obj.set_index(by=xx)
+# pandas中数据(DataFrame)根据列名(str)直接分组返回可迭代对象DataFrameGroupBy：每一个元素是一个元组(索引(分组的值),分组后的DataFrame)
 # DataFrameGroupBy对象可以：1.可以进行遍历 2.调用聚合方法，如count,sum,mean,median,std,var,min,max
+# 注意：objGroupBy.count()后 1.保持obj数据类型，2.此时可视为已添加了标签索引by=xx 字段，其实是一objGroupBy对象 3.obj中会丢失xx字段(当作了标签索引)
 
 # 1.遍历
 grouped = data_sbuck.groupby(by="Country")  # DataFrameGroupBy类型

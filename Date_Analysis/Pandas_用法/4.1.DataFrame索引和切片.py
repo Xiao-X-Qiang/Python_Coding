@@ -12,7 +12,7 @@ import string
 # 注意：定位数据时，可以以上方式直接获得，也可分步获得，即obj[xx][yy] 由obj[xx]获得行或列，再[yy]进一步获得列或行
 
 
-# 1.按字符索引进行切片 obj.loc[]，取行列
+# 1.按标签索引进行切片 obj.loc[]，取行列
 # 1.1 取某行或某列
 data = pd.DataFrame(np.arange(24).reshape((4,6)),index=list("abcd"),columns=list("ABCDEF"))
 
@@ -60,16 +60,17 @@ print(data["D"])  # 取第"D"列
 print(data[["D","W"]])  # 取第"D","W"两列
 
 # 4.pandas的布尔索引 -- 不必深究，了解即可
-# 4.1 bool索引取不连续的行
-# 使用bool索引(pandas.Series类型,且行标签必须与数组一致)选取特定的行
+# 使用方法：正常切片，只是将行或列的选择索引替换为bool索引即可
+# 4.1 bool索引取不连续的行  -- Series类型的bool索引表
+# 使用bool索引(pandas.Series或DataFrame类型时,行索引或列索引名称必须与数组一致)选取特定的行
 data_2 = pd.DataFrame(np.arange(24).reshape((4,6)),index=list("abcd"),columns=list("ABCDEF"))
-print(data_2[pd.Series([False,True,True,False],index=list("abcd"))])  # 选取第2、3行
+print(data_2[pd.Series([False,True,True,False],index=list("abcd"))])  # 选取第2、3行，行选择时bool的行索引名称与数组一致
 
-# 4.2 bool索引取不连续的列
-print(data_2.loc[:,pd.Series([True,False,True,False,False,False],index=list("ABCDEF"))])  # 取第1、3列
+# 4.2 bool索引取不连续的列  -- Series类型的bool索引表
+print(data_2.loc[:,pd.Series([True,False,True,False,False,False],index=list("ABCDEF"))])  # 取第1、3列，列选择时bool的列索引名称与数组一致
 
-# 4.3 bool索引取特定的值
-print(data_2[data_2<20])
+# 4.3 bool索引取特定的值  -- DataFrame类型的bool索引表
+print(data_2[data_2<20])  # 取小于20的行列，行列选择时bool的行列索引名称与数组一致
 
 
 # eg1.找到所有的使用超过800次数的狗的名字 -- bool索引取行
