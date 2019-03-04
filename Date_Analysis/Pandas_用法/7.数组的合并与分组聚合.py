@@ -106,7 +106,7 @@ a_1 = a.set_index(["c","d"])["a"]  # Series类型，其中标签索引c在前，
 print(a_1)  # a:DateFrame,a_1:Series
 
 # 1.2 根据索引值取值
-print(a_1.loc["one"]["j"])  # Series复合索引中，先取"one"索引(Series类型)，再取"j"索引
+print(a_1["one"]["j"])  # Series复合索引中，先取"one"索引(Series类型)，再取"j"索引
 print(a_1["one","j"])  # 等同于上式，同时引用复合标签索引
 
 # 1.3 当Series是如下形式(Series类型--无列标签)时，只想取one标签索引下的值时，如何呢？  交换复合索引obj.swaplevel()

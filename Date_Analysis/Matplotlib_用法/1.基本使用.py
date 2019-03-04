@@ -15,8 +15,9 @@ y_1 = [1,2,2,1,3,4,1,3,2,1,0,2,3,1,1,1,1,1,1,1,1,1,1,1]
 
 x = range(11,35)
 
-# x轴刻度支持中文显示
+# x轴刻度支持中文显示,fc-list :lang=zh 查看支持的中文(冒号前面有空格)(mac)
 my_font = font_manager.FontProperties(fname="/Library/Fonts/Songti.ttc")
+
 
 # 绘图并调整其样式(color,linestyle,alpha)，并添加图例(1.添加label 2.调用legend()方法)
 plt.plot(x,y,label="自个",color="orange",linestyle=":",alpha=0.8,linewidth=2)

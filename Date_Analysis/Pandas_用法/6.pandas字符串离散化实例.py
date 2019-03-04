@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 from matplotlib import pyplot as plt
 import string
-from matplotlib import pyplot as plt
 
 # 对于这一组电影数据，如果我们希望统计电影分类(genre)的情况，应该如何处理数据？
 # 思路：重新构造一个全为0的数组，列名为分类，如果某一条数据中分类出现过，就让0变为1

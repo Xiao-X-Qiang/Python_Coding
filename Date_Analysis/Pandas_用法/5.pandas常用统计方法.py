@@ -38,7 +38,7 @@ data_actor_temp = [i.split(", ") for i in data_x["Actors"].tolist()]
 data_actor = [i for j in data_actor_temp for i in j]
 print(len(set(data_actor)))
 
-# 对于这一组电影数据，如果我们想rating，runtime的分布情况，应该如何呈现数据？
+# 对于这一组电影数据，如果我们想rating的分布情况，应该如何呈现数据？
 data_rate = data_x["Rating"].values
 print(np.max(data_rate),np.min(data_rate))
 plt.figure(figsize=(20,8),dpi=80)

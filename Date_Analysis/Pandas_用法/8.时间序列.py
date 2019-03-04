@@ -27,7 +27,7 @@ print(data_total)
 
 # 如果想统计出不同月份不同类型紧急电话的次数的变化情况，也可以利用以上的方法解决，也可以使用时间序列来解决：
 
-# 时间序列：针对时间上的操作，常使用的方法主要有：pd.data_range()、pd.to_datatime()、obj.resample()、pd.PeriodIndex(...)
+# 时间序列：针对时间上的操作，常使用的方法主要有：pd.data_range()、pd.to_datatime()、obj.resample()、pd.PeriodIndex()
 # 1.pd.date_range():生成特定范围和频率的一组时间序列DatatimeIndex
 # pd.date_range(start=None,end=None,periods=None,freq="D"),其中start:开始时间,end:结束时间,periods:索引个数,freq:频率单位
 time_index = pd.date_range(start="20180101",end="20181001",freq="M")  # 20180101至20181001每月最后一个日历日

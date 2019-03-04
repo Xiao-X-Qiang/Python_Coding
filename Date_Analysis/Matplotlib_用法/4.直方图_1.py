@@ -13,7 +13,7 @@ bin_width = 3
 # 组数为：
 bin_nums = (max(a) - min(a))//bin_width
 
-print(bin_nums)
+print(bin_nums,max(a)-min(a))
 
 # 中文显示
 my_font = font_manager.FontProperties(fname="/Library/Fonts/Songti.ttc")
