@@ -25,6 +25,8 @@ print(p2)
 
 # 2.1 默认情况下，内连接
 print(p1.merge(p2,left_on="O",right_on="X"))  # 列名不同时，使用left_on、right_on指定，默认内连接
+print(pd.merge(p1,p2,on=["O","X"]))  # 效果同上，默认内连接
+
 print(p1.merge(p2,on="a"))  # 当列名相同时，直接使用on,默认内连接
 
 # 2.2 外连接
@@ -146,3 +148,21 @@ print(a_1.loc["one"].loc["h"])  # a:DateFrame,a_1:DataFrame,a_1.loc["one"]:DataF
 # level:复合索引的层次关系 obj.index.levels
 a_2 = a.set_index(["d","c"])[["a"]]  # DataFrame类型，其中标签索引d在前，c在后
 print(a_2.swaplevel().loc["one"])  # 交换复合索引的位置后，取标签索引"one"
+
+# 交叉表
+# pd.crosstab(index=xx,columns=yy)
+# 将其列xx作为行索引，将其yy列作为列索引，当[xx,yy]存在值时为1，否则为0；
+# p1=
+#     A   B   C   D   E   F
+# a   0   7   2   3   4   5
+# b   6   7   8   9  10  11
+# c  12  13  14  15  16  17
+# d  18  19  20  21  22  17
+
+pd.crosstab(p1["B"],p1["F"])
+3*3
+#   F  5   11  17
+# B
+# 7    1   1   0
+# 13   0   0   1
+# 19   0   0   1
