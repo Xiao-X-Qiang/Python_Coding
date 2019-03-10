@@ -3,8 +3,6 @@ from sklearn.decomposition import PCA
 import jieba
 import numpy as np
 
-
-
 # 特征选择：
 # 即单纯从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值(eg:PCA)、或不改变值(eg:直接选择特征)
 # 特征选择的主要方法有：
@@ -20,6 +18,7 @@ def vthreshold():
     print(data)
     print("*"*30)
     print(data_1)
+
 # 1.2 PCA降维
 # 目的：维度空间转换，尽可能降低原数据的维数且损失较少量信息
 # 可以降维的根本缘由在于：高维度时特征之间的相关性也较强
@@ -40,7 +39,6 @@ def pca():
 # 3.Wrapper(包裹式)  --> 待定
 #
 # 4.其它方法：eg:神经网络  --> 待定
-
 
 
 if __name__ == '__main__':

@@ -79,6 +79,8 @@ grouped2 = china_data.groupby(by="State/Province")["Brand"].count()  # DataFrame
 print(grouped1,type(grouped1))
 
 
+
+
 # 索引和复合索引
 
 # 按国家和省份同时分组,且返回DataFrame类型
@@ -100,6 +102,7 @@ grouped_4 = data_sbuck.groupby(by=[data_sbuck["Country"],data_sbuck["State/Provi
 # 指定index: obj.index = ["x","y"]
 # 指定某列作为index：obj.set_index("x",drop=False)  将obj的x列作为标签索引，且x列不从当前数组中删除(drop=False)--默认会删除x(drop=True)
 # 返回index的唯一值：obj.index.unique()
+# 重置行索引为下标索引：obj.reset_index() 将行标签索引作为列添加至obj中(列标签索引为：index)，行索引变为下标索引
 
 # 1.Series复合索引
 a = pd.DataFrame({'a': range(7),'b': range(7, 0, -1),'c': ['one','one','one','two','two','two', 'two'],'d': list("hjklmno")})

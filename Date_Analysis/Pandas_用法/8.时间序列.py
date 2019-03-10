@@ -35,7 +35,8 @@ time_index_1 = pd.date_range(start="20180101",periods=20,freq="H")  # 20180101�
 print(time_index)
 
 # 2.pd.to_datetime(time,format=xx)  其中，time:待转化的时间字符串，format:待转化的时间字符串的时间格式
-x_1 = pd.to_datetime("2019年3月1日",format=("%Y年%m月%d日"))
+x_1 = pd.to_datetime("2019年3月1日",format=("%Y年%m月%d日"))  # 单个数据，x_1：Timestamp类型
+x_2 = pd.to_datetime(["2019年3月1日","2019年4月1日"],format=("%Y年%m月%d日"))  # 多个数据，x_2：DatetimeIndex类型
 print(x_1)
 
 # 3.obj.resample("D")  obj(时间序列必须为标签索引)按天进行重采样，相当于分组 -- DatatimeIndex必须设为标签索引
@@ -96,4 +97,5 @@ for i in set(data_cate_list_temp):
     plt.plot(_x, _y, label=i)
 plt.legend(loc="best")
 plt.show()
+
 

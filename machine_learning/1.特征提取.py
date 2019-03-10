@@ -46,7 +46,7 @@ def hanzivec():
     print(type(data_3.toarray()))  # toarray()将sparse矩阵转为ndarray矩阵
 
 # 2.3 tf-idf
-# tf:term frequency 词频
+# tf:term frequency 词频，特征在单个文本中出现的次数
 # idf:inverse document frequency 逆文本频率, idf=log(总文件数目/包含该词语的文件数目)
 # tf*idf 使得：某一特定文件内的高词语词频，及该词语在整个文件集合中的低文件词频，可以产生高权重的tf-idf，从而保留重要的词语
 
