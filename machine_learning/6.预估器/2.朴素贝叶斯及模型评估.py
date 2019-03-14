@@ -58,7 +58,7 @@ import sklearn
 
 # 拉普拉斯平滑系数：
 # P(a|b) = (Ni + alpha)/(N + alpha*m) 其中，Ni为某一特征值的频数，N为所有特征值的频数，m为特征值的个数
-# 该系数是避免某些特征值在某类训练集中频率为0而使得整个结果为0的情形出现
+# 该系数是避免某些特征值在某类训练集中频数为0而使得整个结果为0的情形出现
 
 # 注意点：
 # sklearn.naive_bayes.MultinomialNB(alpha=1.0)

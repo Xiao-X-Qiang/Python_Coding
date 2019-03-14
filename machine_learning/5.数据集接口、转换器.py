@@ -33,7 +33,7 @@ def fetch_():
     print(news.get("target"))
 
 
-# 2 scikit-learn中数据的分割接口
+# 2 scikit-learn中数据的分割
 # sklearn.model_selection.train_test_split()  用于分割数据，其中：
 # x:数据集的特征值
 # y:数据集的目标值
@@ -55,8 +55,7 @@ def split_iris():
 # obj.fit_transform(X) 结合了fit()与transform()，作统计参数并作用于数据X,推荐使用
 # 注：当obj.fit(X) 然后 obj.transform(Y)时，会以obj.fix(X)的统计结果作用于Y,千万注意
 
-# 一般对数据的训练集和测试集上，使用fit_transform()对训练集进行预处理，使用transform()以训练集的相关统计参数(均值和方差等)
-# 对测试集进行处理，使得train_data,test_data的处理方式相同
+# 一般对数据的训练集和测试集上，使用fit_transform()对训练集进行预处理，使用transform()以训练集的相关统计参数(均值和方差等)对测试集进行处理，使得train_data,test_data的处理方式相同
 
 
 def fit_transform_():

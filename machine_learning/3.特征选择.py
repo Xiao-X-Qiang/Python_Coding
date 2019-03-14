@@ -6,7 +6,9 @@ import numpy as np
 # 特征选择：
 # 即单纯从提取到的所有特征中选择部分特征作为训练集特征，特征在选择前和选择后可以改变值(eg:PCA)、或不改变值(eg:直接选择特征)
 # 特征选择的主要方法有：
-# 1.Filter(过滤式):VarianceThreshold 2.Embedded(嵌入式):正则化、决策树 3.Wrapper(包裹式) 4.其它方法：eg:神经网络
+# 1.Filter(过滤式):VarianceThreshold
+# 2.Embedded(嵌入式):正则化、决策树、神经网络
+# 3.Wrapper(包裹式)
 
 # 1.Filter：VarianceThreshold
 # 1.1 根据方差对特征直接选择
