@@ -8,7 +8,7 @@ data = pd.DataFrame(np.arange(24).reshape((4, 6)), index=list("ABCD"), columns=l
 
 data.iloc[0, 0] = np.nan
 data.iloc[0, -1] = np.nan
-data.iloc[-1, 2] = np.nan
+data.iloc[-1, 2] = 33
 data.iloc[1, -2] = 0
 print(data.astype(float))
 
@@ -29,3 +29,10 @@ print(data.fillna(222))
 # 数据中的0有时表示此字段缺失(此时会影响该字段的某些统计信息，如使本字段的平均数偏小)，有时表示真实值，明确何种类型再处理
 data[data == 0] = 333
 print(data)
+
+# 3.替换操作
+# 将指定的缺失值标记数据(eg:？、*)进行替换(eg:np.nan)，然后再缺失处理
+# obj.replace()
+data.replace(to_replace=33,value=np.nan,inplace=True)
+print(data)
+

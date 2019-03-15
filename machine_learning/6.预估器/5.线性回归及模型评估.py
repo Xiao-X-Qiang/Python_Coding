@@ -81,16 +81,6 @@ def line_lineregression():
     print("梯度下降求解均方误差为：", mean_squared_error(y_test, result_2))
 
 
-
-
-
-
-
-
-
-
-
-
 if __name__ == '__main__':
     line_lineregression()
 
