@@ -65,7 +65,7 @@ print(data[["D","W"]])  # 取第"D","W"两列
 # 使用bool索引(pandas.Series或DataFrame类型时,行索引或列索引名称必须与数组一致)选取特定的行
 data_2 = pd.DataFrame(np.arange(24).reshape((4,6)),index=list("abcd"),columns=list("ABCDEF"))
 print(data_2[pd.Series([False,True,True,False],index=list("abcd"))])  # 选取第2、3行，行选择时bool的行索引名称与数组一致
-
+''
 # 4.2 bool索引取不连续的列  -- Series类型的bool索引表
 print(data_2.loc[:,pd.Series([True,False,True,False,False,False],index=list("ABCDEF"))])  # 取第1、3列，列选择时bool的列索引名称与数组一致
 

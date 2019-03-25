@@ -17,5 +17,5 @@ my_font = font_manager.FontProperties(fname="/Library/Fonts/Songti.ttc")
 plt.xticks(rotation=45, fontproperties=my_font)
 
 plt.bar(a, b, width=0.3)  # width控制条形的宽度
-plt.savefig("./11.png")
+# plt.savefig("./11.png")
 plt.show()

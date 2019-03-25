@@ -1,7 +1,4 @@
 
+import matplotlib.pyplot as plt
 
-
-
-a = (111)
-
-print(type(a))
+plt.subplots()

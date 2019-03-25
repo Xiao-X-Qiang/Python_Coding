@@ -25,6 +25,11 @@ data_1 = data.join(cate_list_column)
 data_total = data_1.groupby(by="cate").count()["title"]
 print(data_total)
 
+
+
+
+
+
 # 如果想统计出不同月份不同类型紧急电话的次数的变化情况，也可以利用以上的方法解决，也可以使用时间序列来解决：
 
 # 时间序列：针对时间上的操作，常使用的方法主要有：pd.data_range()、pd.to_datatime()、obj.resample()、pd.PeriodIndex()

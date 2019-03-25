@@ -16,8 +16,10 @@ class Sql_Code(object):
         # 1.连接数据库、打开游标、查询、关闭游标及连接
         self.cursor.execute("select * from goods;")  # 执行的结果保存在cusor对象中
         # fetchall() 取一条数据；fetchmany(num) 取num条数据；fetchall() 取所有数据；其中数据是以元组的元组的形式
-        result = self.cursor.fetchall()
-        print(result)
+
+        result = self.cursor.fetchmany(3)
+        print(result[0][-1])
+
 
     def modify_data(self):
         # 2.连接数据库、打开游标、插入[删除、修改]、关闭游标及连接
@@ -32,7 +34,8 @@ class Sql_Code(object):
 
 def main():
     sql_code = Sql_Code()
-    sql_code.modify_data()
+    # sql_code.modify_data()  # 添加数据
+    sql_code.get_data()
     sql_code.get_data()
 
 

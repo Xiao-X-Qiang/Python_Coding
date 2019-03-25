@@ -30,26 +30,21 @@ print(type(x_3_1.loc[:,"name"]))
 # obj.shape  # 数组的维度的长度，即(行数、列数)
 # obj.dtype  # 列数据类型
 # obj.ndim  # 数据维度
-# obj.index  # 行索引
-# obj.columns  # 列索引
+# obj.index  # 行标签索引
+# obj.columns  # 列标签索引
 # obj.values  # 对象值，二维ndarray数组
+
+# DataFrame常用方法：
+# obj.drop([],axis=0,1)  # 按标签名删除obj的行(axis=0),或列(axis=1)
+# obj.to_dict(orient="records")  # 将二维数据按行转换成字典形式，常用于sklearn特征提取中(字典形式)
+# eg:print(x_3_1.drop(index=["a"],inplace=True))
 
 # DataFrame整体情况查看：
 # obj.head(num)  # 显示头num行，默认5行
 # obj.tail(num)  # 显示尾num行，默认5行
-# obj.drop([],axis=0,1)  # 按标签名删除obj的行(axis=0),或列(axis=1)
 # obj.info()  # 相关信息概览：行数、行索引、列数、列索引、列非空值个数、列类型、内存占用
-# obj.to_dict(orient="records")  # 将二维数据按行转换成字典形式，常用于sklearn特征提取中(字典形式)
-print(x_3_1.info())
-
 # obj.describe()  # 相关统计信息：计数、均值、标准差、最大值、四分位数、最小值
-print(x_3_1.describe())
-
-print(x_3_1.drop(["name"],axis=1))
 
 # 排序
 # obj.sort_value(by=列索引,asscending=False)按某列的值进行排序,默认升序，ascending=True
 print(x_3_1.sort_values(by="age",ascending=False))  # 按第二列降序排列
-
-
-

@@ -22,7 +22,6 @@ data_3 = list(collections.find())
 print(pd.Series(data_3))
 
 
-
 # 读取网络文件
 # 数据列表中第一行并非是列标签，而是数据，此时需要用到关键参数names指定列名
 columns_ = ['Sample code number','Clump Thickness', 'Uniformity of Cell Size','Uniformity of Cell Shape','Marginal Adhesion','Single Epithelial Cell Size','Bare Nuclei','Bland Chromatin','Normal Nucleoli','Mitoses','Class']

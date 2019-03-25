@@ -11,6 +11,8 @@ import random
 # unpack:默认false,按行读入数组中；true时，转置后写入数组中
 data = np.loadtxt(fname="./youtube.csv",dtype=float,delimiter=",",usecols=(1,2,4),unpack=True)
 print(data)
+print(data.shape)
+print(type(data))  # numpy.ndarray类型
 
 # 2.数组的转置,3种方式
 data = np.arange(12).reshape((3,4))
@@ -26,3 +28,5 @@ print(data_2)
 # 2.3 方式三：
 data_3 = data.swapaxes(1,0)
 print(data_3)
+
+# axis的复数axes

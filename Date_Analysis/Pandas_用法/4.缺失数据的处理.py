@@ -15,7 +15,7 @@ print(data.astype(float))
 # 1.对于NaN
 # 文件或数据库中的数据字段缺失或者为None时，在pandas中表现为NaN
 # 推荐在保存数据时，对于没有值的字段，默认缺失或者默认为None
-# 判断数据是否为NaN:pd.isnull(obj),pd.notnull(obj)
+# 判断数据是否为NaN:pd.isna(obj),pd.notna(obj)
 print(pd.isnull(data.iloc[0]))
 
 # 处理手段：

@@ -49,7 +49,6 @@ print(data_sbuck.head(1))
 # 对于分组后的结果，可视其为将by=xx字段设置为标签索引(单个索引，有别于复合索引)，即 obj.set_index(by=xx)
 # pandas中数据(DataFrame)根据列名(str)直接分组返回可迭代对象DataFrameGroupBy：每一个元素是一个元组(索引(分组的值),分组后的DataFrame)
 # DataFrameGroupBy对象可以：1.可以进行遍历 2.调用聚合方法，如count,sum,mean,median,std,var,min,max
-# 注意：objGroupBy.count()后 1.保持obj数据类型，2.此时可视为已添加了标签索引by=xx 字段，其实是一objGroupBy对象 3.obj中会丢失xx字段(当作了标签索引)
 
 # 1.遍历
 grouped = data_sbuck.groupby(by="Country")  # DataFrameGroupBy类型
@@ -79,8 +78,6 @@ grouped2 = china_data.groupby(by="State/Province")["Brand"].count()  # DataFrame
 print(grouped1,type(grouped1))
 
 
-
-
 # 索引和复合索引
 
 # 按国家和省份同时分组,且返回DataFrame类型
@@ -88,6 +85,7 @@ print(grouped1,type(grouped1))
 
 # DataFrame-->DataFrameGroupBy-->DataFrame;
 # 注意：用于索引的两列，data_sbuck[["Brand"]]数组没有该两列，故而借助于data_sbuck,有别于grouped1、group2的方式
+# DataFrame-->DataFrameGroupBy-->DataFrame
 grouped_1 = data_sbuck[["Brand"]].groupby(by=[data_sbuck["Country"],data_sbuck["State/Province"]]).count()
 # Series-->SeriesGroupBy-->Series
 grouped_2 = data_sbuck["Brand"].groupby(by=[data_sbuck["Country"],data_sbuck["State/Province"]]).count()
@@ -111,8 +109,8 @@ a_1 = a.set_index(["c","d"])["a"]  # Series类型，其中标签索引c在前，
 print(a_1)  # a:DateFrame,a_1:Series
 
 # 1.2 根据索引值取值
-print(a_1["one"]["j"])  # Series复合索引中，先取"one"索引(Series类型)，再取"j"索引
-print(a_1["one","j"])  # 等同于上式，同时引用复合标签索引
+print(a_1.loc["one","j"])  # Series复合索引中，先取"one"索引(Series类型)，再取"j"索引
+print(a_1.loc["one"])
 
 # 1.3 当Series是如下形式(Series类型--无列标签)时，只想取one标签索引下的值时，如何呢？  交换复合索引obj.swaplevel()
 # d  c
@@ -154,7 +152,7 @@ print(a_2.swaplevel().loc["one"])  # 交换复合索引的位置后，取标签�
 
 # 交叉表
 # pd.crosstab(index=xx,columns=yy)
-# 将其列xx作为行索引，将其yy列作为列索引，当[xx,yy]存在值时为1，否则为0；
+# 将其列xx作为行索引(去重)，将其yy列作为列索引(去重)，当[xx,yy]存在值时为1，否则为0；
 # p1=
 #     A   B   C   D   E   F
 # a   0   7   2   3   4   5
@@ -169,3 +167,7 @@ pd.crosstab(p1["B"],p1["F"])
 # 7    1   1   0
 # 13   0   0   1
 # 19   0   0   1
+
+# pd.pivot() 将某列作为行索引(去重)，某列作为列索引(去重)，某列作为对应的值(行列对有重复的，取其平均值)
+pd.pivot_table(p1["B"],p1["F"],p1["A"])
+

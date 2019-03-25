@@ -46,11 +46,15 @@ print(x_5[4])  # 或 print(x_5["D"])
 print(x_5[0:8:2])  # 选取连续的记录，类比于numpy中的切片
 print(x_5[[0,3,6]])  # 选择第1、4、6三个不连续的记录
 
-# 如何知道数据的索引及其值呢?
+# Series对象本质上由两个数组组成：
+# 一个数组构成对象的键(标签索引,下标索引)，一个数组构成对象的值(values),对应于键--->值
+
+# Series属性有：
 # 键名：obj.index
 # 键值：obj.values
 print(x_5.index,x_5.values)
 
-# Series对象本质上由两个数组组成：
-# 一个数组构成对象的键(标签索引,下标索引)，一个数组构成对象的值(values),对应于键--->值
-
+# Series常用方法
+# obj.value_counts()  # 统计Series中不同的值及其数量，常用于统计查看
+data = pd.Series([1,2,3,4,2,1])
+print(data.value_counts())  # Series类型

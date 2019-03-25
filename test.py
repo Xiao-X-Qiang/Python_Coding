@@ -1,31 +1,64 @@
 import time
-
 import threading
 
 
 def main():
-    g_list = [1, 2, 3]
-
-    def test1(name):
-        i = 0
-        while True:
-            time.sleep(1)
-            print("test1", name)
-            g_list = 2
-            i += 1
-
-    def test2():
-        while True:
-            time.sleep(1)
-            print("test2")
-
-    t1 = threading.Thread(target=test1, args=["11", ])
-    t2 = threading.Thread(target=test2)
-
-    t1.start()
-    t2.start()
-
-    print(threading.enumerate())
+    aa = ['何炅',
+           ' / ',
+           '汪涵',
+           ' / ',
+           '王俊凯',
+           ' / ',
+           '王源',
+           ' / ',
+           '易烊千玺',
+           ' / ',
+           '朱一龙',
+           ' / ',
+           '杨紫',
+           ' / ',
+           '刘涛',
+           ' / ',
+           '陈翔',
+           ' / ',
+           '武艺',
+           ' / ',
+           '王鹤棣',
+           ' / ',
+           '沈月',
+           ' / ',
+           '马思超',
+           ' / ',
+           '冯绍峰',
+           ' / ',
+           '秦岚',
+           ' / ',
+           '金志文',
+           ' / ',
+           '于文文',
+           ' / ',
+           '杨钰莹',
+           ' / ',
+           '谭维维',
+           ' / ',
+           '宋茜',
+           ' / ',
+           '罗志祥',
+           ' / ',
+           '徐佳莹',
+           ' / ',
+           '汪东城',
+           ' / ',
+           '田馥甄',
+           ' / ',
+           '吴青峰',
+           ' / ',
+           '程潇',
+           ' / ',
+           '韩红']
+    a = range(10)
+    b = list(a)
+    print(b)
 
 
 if __name__ == '__main__':

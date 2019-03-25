@@ -4,7 +4,7 @@ import string
 from matplotlib import pyplot as plt
 
 # 对DataFrame进行切片后的数据(数据类型:DataFrame或Series).values后(数据类型:numpy.ndarray)可以直接使用numpy中的方法进行有关统计
-# DataFrame、Series也可以使用numpy中的部分统计方法,但推荐 Series-->numpy.ndarry后再使用统计方法
+# DataFrame、Series也可以使用numpy中的部分统计方法
 
 
 # print(type(data)) DataFrame数据类型
@@ -31,6 +31,9 @@ print(data_rate_mean)
 # 将 DataFrame-->Series-->list-->set 得到不重复的导演个数
 data_director = set(data_x["Director"].tolist())  # 或 data_director = set(data_x["Director"].values)
 print(len(data_director))
+
+# DataFrame-->dict
+# obj.to_dict(orient="records")  # 将二维数据按行转换成字典形式，常用于sklearn特征提取中(字典形式)
 
 # 演员信息
 # DataFrame-->Series-->list

@@ -108,9 +108,9 @@ class BookAmazonDownloaderMiddleware(object):
 class RandIpMiddle(object):
     def __init__(self):
         self.IP = ["http://58.211.183.46:40225",
- "http://59.56.168.164:9999",
- "125.115.182.254:3128",
- "113.122.169.59:9999"]
+                     "http://59.56.168.164:9999",
+                     "http:125.115.182.254:3128",
+                     "http:113.122.169.59:9999"]
 
 
     def process_request(self,request,spider):
